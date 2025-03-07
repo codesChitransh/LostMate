@@ -2,8 +2,9 @@ import express from "express";
 import mongoose from "mongoose";
 import dotenv from "dotenv";
 import signuprouter from "./routes/auth.route.js";
+import cookieParser from "cookie-parser";
 const app = express();
-
+app.use(cookieParser());  
 dotenv.config();
 
 const mongoURI = process.env.MONGO_URI; // Correct variable name
