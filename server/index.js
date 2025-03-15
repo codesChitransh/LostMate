@@ -7,7 +7,7 @@ const app = express();
 app.use(cookieParser());  
 dotenv.config();
 
-const mongoURI = process.env.MONGO_URI; // Correct variable name
+const mongoURI = process.env.MONGO_URI; 
 
 if (!mongoURI) {
   console.error("MongoDB URI is undefined! Check your .env file.");
@@ -29,6 +29,6 @@ mongoose
   app.use(express.json());
   app.use('/server/auth', signuprouter);
 
-app.listen(4008, () => {
-  console.log("Server is listening on port 4009");
+app.listen(4010, () => {
+  console.log("Server is listening on port 4008");
 });

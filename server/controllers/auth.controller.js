@@ -18,7 +18,7 @@ export const signup = async (req, res, next) => {
         await newUser.save();
         res.status(201).json("User created successfully");
     } catch (error) {
-        next(error);  // Use centralized error handling middleware
+        next(error);  
     }
 };
 export const signin = async (req, res, next) => {
@@ -33,7 +33,7 @@ export const signin = async (req, res, next) => {
 
         const token = jwt.sign({ id: validUser._id }, process.env.JWT_SECRET, { expiresIn: '1h' });
 
-        const { password: pass, ...rest } = validUser._doc;  // Exclude password from response
+        const { password: pass, ...rest } = validUser._doc;  
         res.cookie('access_token', token, { httpOnly: true })
             .status(200)
             .json(rest);
