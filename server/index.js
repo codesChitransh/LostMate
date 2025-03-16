@@ -3,6 +3,7 @@ import mongoose from "mongoose";
 import dotenv from "dotenv";
 import signuprouter from "./routes/auth.route.js";
 import cookieParser from "cookie-parser";
+import lostrouter from "./routes/lost.route.js";
 const app = express();
 app.use(cookieParser());  
 dotenv.config();
@@ -28,6 +29,7 @@ mongoose
 
   app.use(express.json());
   app.use('/server/auth', signuprouter);
+  app.use('/server/lost',lostrouter)
 
 app.listen(4010, () => {
   console.log("Server is listening on port 4008");
