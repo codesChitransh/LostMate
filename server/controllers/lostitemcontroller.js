@@ -19,7 +19,6 @@ export const createLostItem = async (req, res, next) => {
   }
 };
 
-// Delete a lost item report
 export const deleteLostItem = async (req, res, next) => {
   try {
     const lostItem = await LostItem.findById(req.params.id);
